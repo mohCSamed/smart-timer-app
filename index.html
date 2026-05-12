@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مؤقت ذكي - Smart Timer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>المؤقت الذكي</h1>
+        <div class="timer-display" id="display">00:00:00</div>
+        
+        <div class="inputs">
+            <div class="input-group">
+                <label>ساعات</label>
+                <input type="number" id="hours" min="0" max="23" value="0">
+            </div>
+            <div class="input-group">
+                <label>دقائق</label>
+                <input type="number" id="minutes" min="0" max="59" value="0">
+            </div>
+            <div class="input-group">
+                <label>ثواني</label>
+                <input type="number" id="seconds" min="0" max="59" value="0">
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="startBtn" class="btn start">ابدأ</button>
+            <button id="pauseBtn" class="btn pause" disabled>إيقاف مؤقت</button>
+            <button id="resetBtn" class="btn reset">إعادة ضبط</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
