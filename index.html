@@ -5,34 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مؤقت ذكي - Smart Timer</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
     <div class="container">
-        <h1>المؤقت الذكي</h1>
-        <div class="timer-display" id="display">00:00:00</div>
-        
+        <div class="header">
+            <div class="status-dot" id="statusDot"></div>
+            <h1>المؤقت الذكي</h1>
+        </div>
+
+        <div class="ring-wrapper">
+            <svg class="progress-ring" viewBox="0 0 280 280">
+                <defs>
+                    <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#4facfe"/>
+                        <stop offset="50%" stop-color="#f093fb"/>
+                        <stop offset="100%" stop-color="#43e97b"/>
+                    </linearGradient>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+                        <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                    </filter>
+                </defs>
+                <circle class="ring-bg" cx="140" cy="140" r="120"/>
+                <circle class="ring-progress" id="ringProgress" cx="140" cy="140" r="120" filter="url(#glow)"/>
+            </svg>
+            <div class="timer-center">
+                <div class="timer-display" id="display">00:00:00</div>
+                <div class="timer-label" id="timerLabel">جاهز</div>
+            </div>
+        </div>
+
         <div class="inputs">
             <div class="input-group">
-                <label>ساعات</label>
                 <input type="number" id="hours" min="0" max="23" value="0">
+                <label>ساعة</label>
             </div>
+            <div class="separator">:</div>
             <div class="input-group">
-                <label>دقائق</label>
                 <input type="number" id="minutes" min="0" max="59" value="0">
+                <label>دقيقة</label>
             </div>
+            <div class="separator">:</div>
             <div class="input-group">
-                <label>ثواني</label>
                 <input type="number" id="seconds" min="0" max="59" value="0">
+                <label>ثانية</label>
             </div>
         </div>
 
         <div class="controls">
-            <button id="startBtn" class="btn start">ابدأ</button>
-            <button id="pauseBtn" class="btn pause" disabled>إيقاف مؤقت</button>
-            <button id="resetBtn" class="btn reset">إعادة ضبط</button>
+            <button id="resetBtn" class="btn btn-icon" title="إعادة ضبط">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                    <path d="M3 3v5h5"/>
+                </svg>
+            </button>
+            <button id="startBtn" class="btn btn-main">ابدأ</button>
+            <button id="pauseBtn" class="btn btn-icon" disabled title="إيقاف مؤقت">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <rect x="6" y="4" width="4" height="16" rx="1"/>
+                    <rect x="14" y="4" width="4" height="16" rx="1"/>
+                </svg>
+            </button>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
